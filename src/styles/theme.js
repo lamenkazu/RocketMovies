@@ -1,0 +1,11 @@
+export const defaultTheme = {
+  BACKGROUND: "#1C1B1E",
+
+  PRIMARY: "#FF859B",
+  WHITE: "#F4EDE8",
+
+  GRAY_100: "#CAC4CF",
+  GRAY_200: "#948F99",
+  GRAY_500: "#312E38",
+  GRAY_700: "#262529",
+};
