@@ -9,4 +9,6 @@ export const defaultTheme = {
   GRAY_300: "#3e3b47",
   GRAY_500: "#312E38",
   GRAY_700: "#262529",
+
+  HEADER_BG: "rgba(255, 133, 155, 0.05)",
 };
