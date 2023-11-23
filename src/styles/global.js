@@ -43,10 +43,13 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-track{
-        background-color: ${({ theme }) => theme.PRIMARY}
+        background-color: transparent;
+
     }
 
     ::-webkit-scrollbar-thumb{
-        background-color: ${({ theme }) => theme.WHITE}
+        background-color: ${({ theme }) => theme.PRIMARY};
+        border-radius: 10rem;
+
     }
 `;

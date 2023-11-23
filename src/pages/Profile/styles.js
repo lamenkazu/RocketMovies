@@ -56,7 +56,7 @@ export const Header = styled.header`
   width: 100%;
   height: 14.4rem;
 
-  background-color: ${({ theme }) => theme.HEADER_BG};
+  background-color: ${({ theme }) => theme.SECOND_BG};
 
   display: flex;
   align-items: center;
