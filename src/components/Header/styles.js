@@ -31,9 +31,11 @@ export const ProfileText = styled.div`
   text-align: right;
 
   > strong {
-    color: ${({ theme }) => theme.WHITE};
+    a {
+      color: ${({ theme }) => theme.WHITE};
 
-    font-size: 1.4rem;
+      font-size: 1.4rem;
+    }
   }
 
   > span {
