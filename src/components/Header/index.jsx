@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <Container>
-      <StyledLink>RocketMovies</StyledLink>
+      <StyledLink to="/">RocketMovies</StyledLink>
 
       <Input placeholder="Pesquisar pelo título" />
 

@@ -44,6 +44,12 @@ describe("Header Page", () => {
 
     expect(
       screen.getByRole("link", {
+        name: /rocketmovies/i,
+      })
+    ).toHaveAttribute("href", "/");
+
+    expect(
+      screen.getByRole("link", {
         name: /erick etiene/i,
       })
     ).toHaveAttribute("href", "/profile");
