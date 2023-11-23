@@ -4,10 +4,9 @@ import { AppRoutes } from "./app.routes";
 import { AuthRoutes } from "./auth.routes";
 
 export function Routes() {
+  const hasUser = true;
+
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      {/* <AuthRoutes /> */}
-    </BrowserRouter>
+    <BrowserRouter>{hasUser ? <AppRoutes /> : <AuthRoutes />}</BrowserRouter>
   );
 }
