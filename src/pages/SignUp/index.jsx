@@ -11,11 +11,11 @@ export const SignUp = () => {
         <h1>RocketMovies</h1>
         <span>Aplicação para acompanhar tudo que assistir.</span>
 
-        <h2>Faça seu login</h2>
+        <h2>Crie sua conta</h2>
         <Input placeholder="Nome" />
         <Input type="email" placeholder="E-mail" />
         <Input type="password" placeholder="Senha" />
-        <Button type="submit" title="Entrar" />
+        <Button type="submit" title="Cadastrar" />
         <TextLink title="Voltar para o login" icon={arrowBack} to="/" />
       </Form>
     </Container>

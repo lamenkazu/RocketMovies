@@ -21,7 +21,7 @@ const config = {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ["src/**/*.tsx", "!src/**/*.test.tsx"],
+  collectCoverageFrom: ["src/**/*.jsx", "!src/**/*.test.jsx"],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -175,6 +175,8 @@ const config = {
 
   // A map from regular expressions to paths to transformers
   transform: {
+    "^.+\\.png$": "jest-transform-stub",
+    "^.+\\.svg$": "jest-transform-stub",
     "^.+\\.(t|j)sx?$": [
       "@swc/jest",
       {
