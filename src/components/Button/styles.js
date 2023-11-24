@@ -4,6 +4,9 @@ export const Container = styled.button`
   width: 100%;
   background-color: ${({ theme }) => theme.PRIMARY};
 
+  display: flex;
+  justify-content: center;
+
   > p {
     color: ${({ theme }) => theme.GRAY_500};
     font-size: 1.6rem;

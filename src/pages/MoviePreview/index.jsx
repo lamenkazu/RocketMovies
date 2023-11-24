@@ -1,4 +1,4 @@
-import { Container, Title, Tags, PostInfo, StyledRating } from "./styles";
+import { Container, Title, Tags, PostInfo, StyledRating, Main } from "./styles";
 import { Tag } from "../../components/Tag";
 import { TextLink } from "../../components/TextLink";
 
@@ -10,7 +10,7 @@ export const MoviePreview = () => {
   return (
     <Container>
       <TextLink to="/" title="Voltar" icon={arrowBack} />
-      <main>
+      <Main>
         <Title data-testid="title">
           <h1>Interestellar</h1>
           <StyledRating fillColor={defaultTheme.PRIMARY} size={20} />
@@ -62,7 +62,7 @@ export const MoviePreview = () => {
           atrasando a partida. Ao voltarem para a Endurance, Cooper e Amelia
           descobrem que 23 anos se passaram.
         </p>
-      </main>
+      </Main>
     </Container>
   );
 };

@@ -8,12 +8,13 @@ export const Container = styled.div`
   > a {
     margin-bottom: 2.4rem;
   }
-
-  > main {
-    max-height: 60vh;
-    overflow-y: scroll;
-  }
 `;
+
+export const Main = styled.main`
+  max-height: 60vh;
+  overflow-y: scroll;
+`;
+
 export const Tags = styled.div`
   display: flex;
   gap: 0.8rem;

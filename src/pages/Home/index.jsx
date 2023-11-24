@@ -10,7 +10,7 @@ export const Home = () => {
       <Title>
         <h1>Meus filmes</h1>
 
-        <Button icon={FiPlus} title="Adicionar filme" />
+        <Button to="/movie/new" icon={FiPlus} title="Adicionar filme" />
       </Title>
 
       <Main data-testid="main">
