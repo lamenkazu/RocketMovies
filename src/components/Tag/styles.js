@@ -9,6 +9,6 @@ export const Container = styled.div`
   width: max-content;
 
   margin-right: 0.6rem;
-  background-color: ${({ theme }) => theme.SECOND_BG};
+  background-color: ${({ theme }) => theme.GRAY_500};
   color: ${({ theme }) => theme.GRAY_000};
 `;

@@ -1,4 +1,4 @@
-import { Container, Tags, P } from "./styles";
+import { Container, Tags, P, Title } from "./styles";
 import { defaultTheme } from "../../../styles/theme";
 
 import { Tag } from "../../../components/Tag";
@@ -6,12 +6,12 @@ import { Rating } from "react-simple-star-rating";
 
 export const MovieCard = () => {
   return (
-    <Container>
-      <div>
+    <Container to="/movie/preview/x">
+      <Title>
         <h2 data-testid="title">Interestellar</h2>
 
         <Rating fillColor={defaultTheme.PRIMARY} size={12} />
-      </div>
+      </Title>
       <P data-testid="paragraph">
         Pragas nas colheitas fizeram a civilização humana regredir para uma
         sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da
@@ -47,8 +47,8 @@ export const MovieCard = () => {
 
       <Tags data-testid="tags">
         <Tag title="Ficção Científica" />
-        <Tag title="Ficção Científica" />
-        <Tag title="Ficção Científica" />
+        <Tag title="Drama" />
+        <Tag title="Família" />
       </Tags>
     </Container>
   );

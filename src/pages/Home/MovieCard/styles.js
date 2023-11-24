@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled(Link)`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -10,7 +11,9 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.SECOND_BG};
 
   margin-right: 0.8rem;
+`;
 
+export const Title = styled.div`
   > h2 {
     color: ${({ theme }) => theme.WHITE_2};
     font-size: 2.4rem;

@@ -5,7 +5,11 @@ import { MovieCard } from ".";
 
 describe("Header Page", () => {
   it("should render page successfully", () => {
-    const { container } = render(<MovieCard />);
+    const { container } = render(
+      <MemoryRouter>
+        <MovieCard />
+      </MemoryRouter>
+    );
 
     expect(container).toBeInTheDocument();
   });
