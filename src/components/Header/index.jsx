@@ -1,7 +1,16 @@
 import { Container, Profile, StyledLink, Cover, ProfileText } from "./styles";
 import { Input } from "../Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/auth";
 export const Header = () => {
+  const navigate = useNavigate();
+  const { signOut } = useAuth();
+
+  const handleLogOut = () => {
+    signOut();
+    navigate("/");
+  };
+
   return (
     <Container>
       <StyledLink to="/">RocketMovies</StyledLink>
@@ -13,7 +22,10 @@ export const Header = () => {
           <strong data-testid="username">
             <Link to="/profile">Erick Etiene</Link>
           </strong>
-          <span>sair</span>
+
+          <span>
+            <button onClick={handleLogOut}>sair</button>
+          </span>
         </ProfileText>
         <Link to="/profile">
           <Cover src="https://github.com/lamenkazu.png" alt="Foto do usuário" />

@@ -39,9 +39,12 @@ export const ProfileText = styled.div`
   }
 
   > span {
-    color: ${({ theme }) => theme.GRAY_200};
-
-    font-size: 1.4rem;
+    button {
+      background: none;
+      border: none;
+      color: ${({ theme }) => theme.GRAY_200};
+      font-size: 1.4rem;
+    }
   }
 `;
 
