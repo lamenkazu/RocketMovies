@@ -1,9 +1,17 @@
+import { useState } from "react";
+import { useAuth } from "../../hooks/auth";
+
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 import { Container, Form, Avatar, Header, StyledLink } from "./styles";
 import { Input } from "./../../components/Input";
 import { Button } from "./../../components/Button";
 
 export function Profile() {
+  const { user } = useAuth();
+
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
+
   return (
     <Container>
       <Header>
@@ -22,8 +30,8 @@ export function Profile() {
           </label>
         </Avatar>
 
-        <Input placeholder="Name" type="text" icon={FiUser} />
-        <Input placeholder="E-mail" type="text" icon={FiMail} />
+        <Input placeholder="Name" type="text" icon={FiUser} value={name} />
+        <Input placeholder="E-mail" type="text" icon={FiMail} value={email} />
 
         <Input placeholder="Senha Atual" type="password" icon={FiLock} />
         <Input placeholder="Nova Senha" type="password" icon={FiLock} />

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 export const Header = () => {
   const navigate = useNavigate();
-  const { signOut } = useAuth();
+  const { user, signOut } = useAuth();
 
   const handleLogOut = () => {
     signOut();
@@ -20,7 +20,7 @@ export const Header = () => {
       <Profile>
         <ProfileText>
           <strong data-testid="username">
-            <Link to="/profile">Erick Etiene</Link>
+            <Link to="/profile">{user.name}</Link>
           </strong>
 
           <span>
