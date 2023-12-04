@@ -30,6 +30,31 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const updateUser = async ({ user, avatarFile }) => {
+    try {
+      if (avatarFile) {
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("avatar", avatarFile);
+
+        const response = await api.patch("/Users/avatar", fileUploadForm);
+        user.avatar = response.data.avatar;
+      }
+
+      await api.put("/Users", user);
+      localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+
+      setData({ user, token: data.token });
+
+      alert("Perfil Atualizado!");
+    } catch (err) {
+      if (err.response) {
+        alert(err.response.data.message);
+      } else {
+        alert("Não foi possivel atualizar os dados do usuario");
+      }
+    }
+  };
+
   const signOut = () => {
     setData({});
     localStorage.removeItem("@rocketmovies:user");
@@ -50,7 +75,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ user: data.user, signIn, updateUser, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
