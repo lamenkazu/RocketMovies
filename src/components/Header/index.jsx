@@ -23,8 +23,6 @@ export const Header = () => {
     <Container>
       <StyledLink to="/">RocketMovies</StyledLink>
 
-      <Input placeholder="Pesquisar pelo título" />
-
       <Profile>
         <ProfileText>
           <strong data-testid="username">

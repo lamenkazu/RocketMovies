@@ -7,6 +7,7 @@ export const Container = styled.div`
   padding: 2.4rem 12.3rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 6.4rem;
 
   border-bottom: 1px solid ${({ theme }) => theme.GRAY_300};

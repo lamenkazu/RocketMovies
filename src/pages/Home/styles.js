@@ -12,7 +12,9 @@ export const Title = styled.section`
 
   margin-bottom: 4rem;
 
-  > h1 {
+  > div {
+    width: 50%;
+    margin-top: 2rem;
   }
 
   > button {
