@@ -15,6 +15,7 @@ export const MovieCard = ({ data, ...rest }) => {
           fillColor={defaultTheme.PRIMARY}
           size={12}
           initialValue={data.rating}
+          readonly
         />
       </Title>
       <P data-testid="paragraph">{data.description}</P>

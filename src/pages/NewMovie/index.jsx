@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
@@ -24,6 +25,7 @@ import { Marker } from "../../components/Marker";
 import imgBack from "../../assets/arrowBack.svg";
 
 export const NewMovie = () => {
+  const navigate = useNavigate();
   const { user } = useAuth();
 
   const [title, setTitle] = useState("");
@@ -62,6 +64,8 @@ export const NewMovie = () => {
       tags,
       user_id: user.user_id,
     });
+
+    navigate(-1);
   };
 
   return (
