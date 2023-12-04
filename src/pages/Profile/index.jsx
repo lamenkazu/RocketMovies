@@ -1,13 +1,18 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
 
-import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 import { Container, Form, Avatar, Header, StyledLink } from "./styles";
 import { Input } from "./../../components/Input";
 import { Button } from "./../../components/Button";
+import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Profile() {
   const { user } = useAuth();
+
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -23,7 +28,7 @@ export function Profile() {
 
       <Form>
         <Avatar>
-          <img src="https://github.com/lamenkazu.png" alt="Foto do usuário" />
+          <img src={avatarUrl} alt="Foto do usuário" />
           <label htmlFor="avatar">
             <FiCamera />
             <input id="avatar" type="file" />

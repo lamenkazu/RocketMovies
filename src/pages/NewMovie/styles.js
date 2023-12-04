@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   grid-area: main;
-  padding: 0 12.3rem 8.5rem;
+  padding: 4rem 12.3rem 8.5rem;
 
   > a {
     margin-bottom: 2.4rem;
@@ -25,8 +25,6 @@ export const MarkDowns = styled.section`
   padding: 1.6rem;
 
   border-radius: 0.8rem;
-
-  background-color: ${({ theme }) => theme.GRAY_900};
 `;
 
 export const Buttons = styled.section`

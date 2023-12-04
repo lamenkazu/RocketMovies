@@ -20,9 +20,9 @@ export const Container = styled.div`
   margin-right: 2.4rem;
 
   background-color: ${({ theme, $isnew }) =>
-    $isnew ? "transparent" : theme.PRIMARY};
+    $isnew ? "transparent" : theme.GRAY_700};
 
-  color: ${({ theme }) => theme.GRAY_300};
+  color: ${({ theme }) => theme.WHITE};
 
   border: ${({ theme, $isnew }) =>
     $isnew ? `1px dashed ${theme.GRAY_300}` : "none"};
@@ -40,14 +40,6 @@ export const Container = styled.div`
   > button {
     border: none;
     background: none;
-  }
-
-  .button-delete {
-    /* color: ${({ theme }) => theme.RED}; */
-    color: red;
-  }
-
-  .button-add {
-    color: orange;
+    color: ${({ theme }) => theme.PRIMARY};
   }
 `;

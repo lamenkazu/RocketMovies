@@ -1,11 +1,19 @@
-import { Container, Profile, StyledLink, Cover, ProfileText } from "./styles";
-import { Input } from "../Input";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
+import { api } from "../../services/api";
+
+import { Container, Profile, StyledLink, Cover, ProfileText } from "./styles";
+import { Input } from "../Input";
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+
 export const Header = () => {
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
 
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
   const handleLogOut = () => {
     signOut();
     navigate("/");
@@ -28,7 +36,7 @@ export const Header = () => {
           </span>
         </ProfileText>
         <Link to="/profile">
-          <Cover src="https://github.com/lamenkazu.png" alt="Foto do usuário" />
+          <Cover src={avatarUrl} alt="Foto do usuário" />
         </Link>
       </Profile>
     </Container>

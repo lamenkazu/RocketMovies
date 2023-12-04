@@ -28,14 +28,13 @@ export const Home = () => {
       </Title>
 
       <Main data-testid="main">
-        {notes &&
-          notes.map((note) => (
-            <MovieCard
-              to={`/movie/preview/${note.note_id}`}
-              key={note.note_id}
-              data={note}
-            />
-          ))}
+        {notes?.map((note) => (
+          <MovieCard
+            to={`/movie/preview/${note.note_id}`}
+            key={note.note_id}
+            data={note}
+          />
+        ))}
       </Main>
     </Container>
   );

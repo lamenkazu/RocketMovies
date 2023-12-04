@@ -28,6 +28,15 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
 
+    input[type=number]::-webkit-inner-spin-button { 
+        -webkit-appearance: none;
+    }
+
+    input[type=number] { 
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+
     button, a{
         cursor: pointer;
         transition: filter 200ms;
