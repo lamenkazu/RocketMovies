@@ -44,7 +44,7 @@ describe("NewMovie Page", () => {
       })
     ).toBeInTheDocument();
 
-    expect(screen.getByPlaceholderText(/nova tag/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Novo Marcador/i)).toBeInTheDocument();
     expect(
       screen.getByRole("button", {
         name: /excluir fime/i,

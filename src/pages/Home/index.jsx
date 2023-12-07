@@ -38,8 +38,8 @@ export const Home = () => {
       <Main data-testid="main">
         {notes?.map((note) => (
           <MovieCard
-            to={`/movie/preview/${note.note_id}`}
             key={note.note_id}
+            to={`/movie/preview/${note.note_id}`}
             data={note}
           />
         ))}

@@ -3,6 +3,21 @@ import { MemoryRouter } from "react-router-dom";
 
 import { Header } from ".";
 
+import { useAuth } from "../../hooks/auth";
+
+jest.mock("../../hooks/auth", () => ({
+  useAuth: jest.fn(),
+}));
+
+beforeAll(() => {
+  const mockUser = {
+    name: "John Doe",
+    avatar: "https://example.com/avatar.png",
+  };
+
+  useAuth.mockReturnValue({ user: mockUser });
+});
+
 describe("Header Page", () => {
   it("should render page successfully", () => {
     const { container } = render(
@@ -22,10 +37,6 @@ describe("Header Page", () => {
     );
 
     expect(screen.getByText("RocketMovies")).toBeInTheDocument();
-
-    expect(
-      screen.getByPlaceholderText("Pesquisar pelo título")
-    ).toBeInTheDocument();
 
     expect(screen.getByTestId("username")).toBeInTheDocument();
     expect(screen.getByText("sair")).toBeInTheDocument();
@@ -48,7 +59,7 @@ describe("Header Page", () => {
 
     expect(
       screen.getByRole("link", {
-        name: /erick etiene/i,
+        name: /John Doe/i,
       })
     ).toHaveAttribute("href", "/profile");
 

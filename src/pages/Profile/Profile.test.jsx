@@ -1,13 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-
 import { Profile } from ".";
 
-const getBackLink = () => {
-  return screen.getByRole("link", {
-    name: /voltar/i,
-  });
-};
+import { useAuth } from "../../hooks/auth";
+
+jest.mock("../../hooks/auth", () => ({
+  useAuth: jest.fn(),
+}));
+
+beforeAll(() => {
+  const mockUser = {
+    name: "John Doe",
+    avatar: "https://example.com/avatar.png",
+  };
+
+  useAuth.mockReturnValue({ user: mockUser });
+});
 
 describe("Profile Page", () => {
   it("should render page successfully", () => {
@@ -59,3 +67,9 @@ describe("Profile Page", () => {
     expect(getBackLink()).toHaveAttribute("href", "/");
   });
 });
+
+const getBackLink = () => {
+  return screen.getByRole("link", {
+    name: /voltar/i,
+  });
+};

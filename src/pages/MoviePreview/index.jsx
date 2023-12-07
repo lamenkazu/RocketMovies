@@ -48,6 +48,7 @@ export const MoviePreview = () => {
           <Title data-testid="title">
             <h1>{note.title}</h1>
             <StyledRating
+              data-testid="rating"
               fillColor={defaultTheme.PRIMARY}
               size={20}
               initialValue={note.rating}

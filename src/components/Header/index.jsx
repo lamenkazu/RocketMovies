@@ -3,7 +3,6 @@ import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
 
 import { Container, Profile, StyledLink, Cover, ProfileText } from "./styles";
-import { Input } from "../Input";
 
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 

@@ -28,18 +28,26 @@ export const NewMovie = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  const [title, setTitle] = useState("");
-  const [rating, setRating] = useState("");
-  const [description, setDescription] = useState("");
+  const [form, setForm] = useState({
+    title: "",
+    rating: "",
+    description: "",
+    newMarker: "",
+  });
   const [tags, setTags] = useState([]);
-  const [newMarker, setNewMarker] = useState("");
+
+  const handleFormChanges = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleAddMarker = () => {
-    if (newMarker === "") {
-      return;
-    }
-    setTags((prevState) => [...prevState, newMarker]);
-    setNewMarker("");
+    if (form.newMarker === "") return;
+
+    setTags((prevState) => [...prevState, form.newMarker]);
+    setForm({ ...form, newMarker: "" });
   };
 
   const handleRemoveMarker = (deleted) => {
@@ -47,20 +55,20 @@ export const NewMovie = () => {
   };
 
   const handleSaveMovie = async () => {
-    if (!title || !rating) {
+    if (!form.title || !form.rating) {
       return alert("Os campos com asterisco são obrigatórios");
     }
     if (tags.length === 0) {
       return alert("O filme deve ter pelo menos um marcador");
     }
-    if (rating < 1 || rating > 5) {
+    if (form.rating < 1 || form.rating > 5) {
       return alert("A nota do filme deve estar entre 1 e 5");
     }
 
     await api.post("/Notes", {
-      title,
-      description,
-      rating,
+      title: form.title,
+      description: form.description,
+      rating: form.rating,
       tags,
       user_id: user.user_id,
     });
@@ -77,18 +85,21 @@ export const NewMovie = () => {
 
         <Inputs>
           <Input
+            name="title"
             placeholder="Titulo *"
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={handleFormChanges}
           />
           <Input
+            name="rating"
             type="number"
             placeholder="Sua nota (0 a 5) *"
-            onChange={(e) => setRating(e.target.value)}
+            onChange={handleFormChanges}
           />
         </Inputs>
         <TextArea
+          name="description"
           placeholder="Observações"
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handleFormChanges}
         ></TextArea>
 
         <h2>Marcadores</h2>
@@ -105,10 +116,11 @@ export const NewMovie = () => {
           ))}
 
           <Marker
+            name="newMarker"
             isNew
             placeholder="Novo Marcador"
-            value={newMarker}
-            onChange={(e) => setNewMarker(e.target.value)}
+            value={form.newMarker}
+            onChange={handleFormChanges}
             onClick={handleAddMarker}
           />
         </MarkDowns>
